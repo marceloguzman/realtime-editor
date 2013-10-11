@@ -1,0 +1,55 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+	<script src="http://code.jquery.com/jquery-1.9.1.js" type="text/javascript"></script>
+	<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js" type="text/javascript"></script>
+	<link href="../codemirror/lib/codemirror.css" rel="stylesheet">
+	<script src="../codemirror/lib/codemirror.js"></script>
+	<script src="../codemirror/mode/xml/xml.js"></script>
+	<script src="../codemirror/mode/javascript/javascript.js"></script>
+	<script src="../codemirror/mode/css/css.js"></script>
+	<script src="../codemirror/mode/htmlmixed/htmlmixed.js"></script>
+	<script src="../codemirror/addon/edit/matchbrackets.js"></script>
+	<link href="../codemirror/theme/monokai.css" rel="stylesheet">
+
+	<script src="realtime-editor.js"></script>
+	<link href="realtime-editor.css" rel="stylesheet" type="text/css">
+	<title>realtime editor</title>
+</head>
+
+<body>
+	<div class="header">
+		<img id="logo" src="../images/logo.png">
+		<h1><span>realtime</span>editor</h1><img id="menu" src="../images/menu.png">
+		<div class="iconos">
+			<img id="restart" src="../images/glyphicons_365_restart.png">
+			<img id="font_dec" src="../images/glyphicons_115_text_smaller.png"> 
+			<img id="font_inc" src="../images/glyphicons_116_text_bigger.png">
+		</div>
+	</div>
+	<textarea class="texto" id="htmltext">texto</textarea> 
+	<textarea class="texto" id="csstext">texto</textarea> 
+	
+<script>
+	var editor = CodeMirror.fromTextArea(document.getElementById("htmltext"), {
+		  lineNumbers: true,
+		  mode: "text/html",
+		  theme: "monokai",
+		  matchBrackets: true
+		});
+
+	var editor2 = CodeMirror.fromTextArea(document.getElementById("csstext"), {
+		  lineNumbers: true,
+		  mode: "css",
+		  theme: "monokai",
+		  matchBrackets: true
+		});
+</script>
+
+	<div class="footer">
+		<small><a href="http://www.marceloguzman.com/" target="_blank">Made by Marcelo Guzmán</a></small> 
+		<small><a href="https://github.com/marceloguzman/realtime-editor" target="_blank">Follow this project on Github</a></small>
+	</div>
+</body>
+</html>

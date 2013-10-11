@@ -1,0 +1,109 @@
+﻿html,body {
+	overflow: hidden;
+	height: 100%;
+}
+
+body {
+	background-color: #b7c5d2;
+	border: none;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+}
+
+#logo {
+	float: left;
+	margin: 15px 0 0 20px;
+}
+
+.footer {
+	background-color: #3e3e3e;
+	border-top: 5px solid #4e7ba4;
+	bottom: 0;
+	color: #fff;
+	height: 1%;
+	left: 0;
+	padding: 10px 0 18px 0;
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	z-index: 999;
+}
+
+.footer small {
+	margin: 0 15px;
+}
+
+.footer  a {
+	text-decoration: none;
+	color: #fff;
+}
+
+.footer  a:hover {
+	text-decoration: underline;
+}
+
+.CodeMirror {
+	-moz-border-radius: 10px;
+	-o-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	border: 9px solid #272822;
+	float: right;
+	font-size: 15px;
+	height: 40%;
+	margin: 1%;
+	width: 95%;
+	z-index: 99;
+}
+
+.header {
+	background-color: #3e3e3e;
+	border-bottom: 5px solid #4e7ba4;
+	display: block;
+	float: left;
+	min-height: 50px;
+	width: 100%;
+}
+
+.header h1 {
+	color: #fff;
+	display: inline;
+	float: left;
+	font-family: Tahoma, Verdana, Segoe, sans-serif;
+	font-size: 25px;
+	margin: 20px 10px 8px 10px;
+}
+
+.header h1 span {
+	color: #999;
+	display: inline;
+	font-family: Tahoma, Verdana, Segoe, sans-serif;
+	font-size: 12px;
+	margin: -10px 0 0 0;
+	position: absolute;
+}
+
+.iconos {
+	border-top: 1px solid #fff;
+	color: #fff;
+	display: none;
+	float: right;
+	margin: 55px 30px 0 0;
+	width: 300px;
+}
+
+.iconos img {
+	padding: 10px;
+}
+
+#menu {
+	position: absolute;
+	right: 30px;
+	top: 17px;
+}
+
+#restart {
+	padding-right: 30px;
+}
