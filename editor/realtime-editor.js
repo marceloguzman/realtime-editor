@@ -10,10 +10,16 @@ var oldHTML = "";
 var oldCSS = "";
 var fontsize = 15;
 var nl = "\n";
-var defaultHTML = '<html>\n<body>\n' + '<h1>Carpe Diem<\/h1>\n<\/body>\n<\/html>';
-var defaultCSS = 'body h1 {\n' + '   width: 300px;\n' + '   text-align: center;\n' + '   margin: auto;\n' + '}\n';
+var defaultHTML = '<html>\n' + '  <body>\n' + '    <h1>Carpe Diem</h1>\n' + '    <h2>quam minimum credula postero</h2>\n' + '  </body>\n' + '</html>\n' ;
+
+
+
+var defaultCSS = 'h1 {\n' + '    text-align: center;\n' + '   margin: auto;\n' + '}\n\n' +
+				 'h2 {\n' + '    font-size: 16px;\n' + '    text-align: center;\n' + '   margin: auto;\n\n';
+
 var cleanCSS = 'body {' + nl + 'background:#fff url("../images/document_icon.gif") no-repeat 50% 50%;' + nl + 'height: 100%;' + nl + 'width: 100%;' + nl + '}';
 var cleanHTML = '<html><body>' + nl + '</body></html>';
+var autorefresh=true;
 
  /* ---------------------------------------------------------------------------------------------- */
 
@@ -37,8 +43,31 @@ function update() {
 		d.close();
 	}
 	
-	window.setTimeout(update, 400);
+	if (autorefresh==true ) {
+		window.setTimeout(update, 400);
+	}
 } 
+
+
+
+
+
+function clear_text(){
+
+    var conf = confirm("Are you sure you want to clear the editor windows?");
+
+    if(conf == true){
+		editor.setValue("");
+		editor2.setValue("");
+		update();
+    }
+
+}
+
+
+
+
+
 
 /* ---------------------------------------------------------------------------------------------- */
 
@@ -64,11 +93,39 @@ jQuery(document).ready(function() {
 		editor2.refresh();
 	});
 	
+	$("#autorefresh").click(function(event) {
+		event.preventDefault();		
+		
+		if (autorefresh==false) {
+		autorefresh=true;
+		$(this).attr("src","../images/refresh_auto.png");
+		$(this).attr("title","auto refresh is ON");
+		$("#refresh").css("display","none");
+		window.setTimeout(update, 400);
+		}else{
+		autorefresh=false;
+		$(this).attr("src","../images/refresh_off.png");
+		$(this).attr("title","auto refresh is OFF");
+		$("#refresh").css("display","block");
+		}
+	
+	});	
+			
+			
+$("#refresh").click(function(event) {
+		event.preventDefault();					
+		update();
+		
+		
+		
+	});
+	
 	$("#restart").click(function(event) {
 		event.preventDefault();
-		editor.setValue("");
-		editor2.setValue("");
+		clear_text();
 	});
+	
+	
 	
 	$("#menu").click(function() {
 		$(".iconos").slideToggle();

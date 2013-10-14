@@ -91,19 +91,28 @@ body {
 	display: none;
 	float: right;
 	margin: 55px 30px 0 0;
-	width: 300px;
+	text-align: right;
 }
 
 .iconos img {
 	padding: 10px;
+	
 }
 
-#menu {
+#menu, #refresh {
 	position: absolute;
 	right: 30px;
 	top: 17px;
 }
 
+#refresh {
+	right: 80px;
+	display: none;
+}
+
+
+
+
 #restart {
-	padding-right: 30px;
+	padding-right: 50px;
 }
