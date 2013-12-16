@@ -9,14 +9,11 @@
 var oldHTML = "";
 var oldCSS = "";
 var fontsize = 15;
+var update_time = 800;
 var nl = "\n";
 var defaultHTML = '<html>\n' + '  <body>\n' + '    <h1>Carpe Diem</h1>\n' + '    <h2>quam minimum credula postero</h2>\n' + '  </body>\n' + '</html>\n' ;
-
-
-
 var defaultCSS = 'h1 {\n' + '    text-align: center;\n' + '   margin: auto;\n' + '}\n\n' +
 				 'h2 {\n' + '    font-size: 16px;\n' + '    text-align: center;\n' + '   margin: auto;\n\n';
-
 var cleanCSS = 'body {' + nl + 'background:#fff url("../images/document_icon.gif") no-repeat 50% 50%;' + nl + 'height: 100%;' + nl + 'width: 100%;' + nl + '}';
 var cleanHTML = '<html><body>' + nl + '</body></html>';
 var autorefresh=true;
@@ -36,32 +33,28 @@ function update() {
 	
 	if ((oldHTML != textarea) || (oldCSS != cssarea)) {
 		oldHTML = textarea;
-		oldCSS = "<style>" + cssarea + "</style>";
+		oldCSS = "\n\n<!-- --------------------------------------- -->\n\n<style>\n" + cssarea + "\n</style>";
 		d.open();
 		d.write(oldHTML + oldCSS);
 		if (oldHTML.replace(/[\r\n]/g, '') == defaultHTML.replace(/[\r\n]/g, '')) d.write();
+		$("#htmlpage textarea").val(oldHTML + oldCSS);
 		d.close();
 	}
 	
 	if (autorefresh==true ) {
-		window.setTimeout(update, 400);
+		window.setTimeout(update, update_time);
 	}
 } 
 
-
-
-
-
 function clear_text(){
-
     var conf = confirm("Are you sure you want to clear the editor windows?");
 
     if(conf == true){
 		editor.setValue("");
 		editor2.setValue("");
+		$("#htmlpage textarea").val("");
 		update();
     }
-
 }
 
 
@@ -76,6 +69,28 @@ jQuery(document).ready(function() {
 	editor.setValue(defaultHTML);
 	editor2.setValue(defaultCSS);
 	update();
+	
+
+	$("#export").click(function(event) {
+		console.log ("dando estilo");
+		$("#htmlpage").toggleClass("html_page");
+		autorefresh= !autorefresh;
+		
+		
+		if (autorefresh==true) {
+		window.setTimeout(update, update_time);
+		}
+		
+		$("#footer").toggle();
+		
+		$("#htmlpage textarea").select();
+
+		
+		
+		
+		
+		
+	});
 	
 	$("#font_dec").click(function(event) {
 		event.preventDefault();
@@ -101,7 +116,7 @@ jQuery(document).ready(function() {
 		$(this).attr("src","../images/refresh_auto.png");
 		$(this).attr("title","auto refresh is ON");
 		$("#refresh").css("display","none");
-		window.setTimeout(update, 400);
+		window.setTimeout(update, update_time);
 		}else{
 		autorefresh=false;
 		$(this).attr("src","../images/refresh_off.png");
@@ -111,21 +126,15 @@ jQuery(document).ready(function() {
 	
 	});	
 			
-			
-$("#refresh").click(function(event) {
+	$("#refresh").click(function(event) {
 		event.preventDefault();					
 		update();
-		
-		
-		
 	});
 	
 	$("#restart").click(function(event) {
 		event.preventDefault();
 		clear_text();
 	});
-	
-	
 	
 	$("#menu").click(function() {
 		$(".iconos").slideToggle();

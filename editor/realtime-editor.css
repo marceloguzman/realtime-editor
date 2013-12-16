@@ -99,20 +99,52 @@ body {
 	
 }
 
-#menu, #refresh {
+#menu, #refresh, #export {
 	position: absolute;
 	right: 30px;
 	top: 17px;
 }
 
-#refresh {
+#export {
 	right: 80px;
-	display: none;
+}
+
+.hidden{
+display: none;
+}
+
+.html_page {
+background-color: #b7c5d2;
+width: inherit;
+height: inherit;
+display: inline-block;
+z-index: 999;	
+text-align: center;
 }
 
 
 
+.html_page  textarea{
+	height: 50%;
+	width: 95%;
+	margin: 10px 1% 10px 1%;
+	border: 9px solid #fff;
+	border-radius: 9px;
+	float: right;
+
+}
+
+
+#refresh {
+	right: 130px;
+	display: none;
+}
 
 #restart {
 	padding-right: 50px;
 }
+
+
+
+
+

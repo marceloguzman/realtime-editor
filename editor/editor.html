@@ -27,6 +27,9 @@
 		<h1><span>realtime</span>editor</h1>
 		<img id="refresh" src="../images/refresh.png" title="Refresh the results">
 		<img id="menu" src="../images/menu.png" title="Menu">
+		
+		<img id="export" src="../images/export.png" title="exportar">
+		
 		<div class="iconos">
 			<img id="restart" src="../images/restart.png" title="restart">
 			<img id="autorefresh" src="../images/refresh_auto.png" title="auto refresh is ON">
@@ -34,8 +37,14 @@
 			<img id="font_inc" src="../images/text_big.png" title="bigger font">
 		</div>
 	</div>
+	
+	<div class="hidden" id="htmlpage">
+	<textarea>texto</textarea> 
+	</div>
 	<textarea class="texto" id="htmltext">texto</textarea> 
 	<textarea class="texto" id="csstext">texto</textarea> 
+	
+	
 	
 <script>
 	var editor = CodeMirror.fromTextArea(document.getElementById("htmltext"), {
@@ -53,7 +62,7 @@
 		});
 </script>
 
-	<div class="footer">
+	<div id="footer" class="footer">
 		<small><a href="http://www.marceloguzman.com/" target="_blank">Made by Marcelo Guzmán</a></small> 
 		<small><a href="https://github.com/marceloguzman/realtime-editor" target="_blank">Follow this project on Github</a></small>
 	</div>
